@@ -1,0 +1,25 @@
+<%- include('headNav.ejs', { pageTitle: 'Incluir itens' }) %>
+
+    <section class="container">
+        <h2>Adicionar item ao cardapio</h2>
+
+        <form action="/criar" method="POST">
+            <label for="Title">Nome do prato:</label>
+            <input type="text" name="Title">
+
+            <label for="Des">Descrição:</label>
+            <input type="text" name="Des">
+
+            <label for="Price">Preço:</label>
+            <input type="text" name="Price">
+
+            <label for="URL">Imagem:</label>
+            <input type="text" name="URL">
+
+            <button type="submit" class="waves-effect waves-light btn-large deep-orange darken-4">Adicionar</button>
+        </form>
+
+    </section>
+</body>
+
+</html>

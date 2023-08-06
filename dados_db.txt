@@ -1,0 +1,19 @@
+create schema banco_node
+
+USE banco_node;
+
+create table cardapio(
+Title VARCHAR(255),
+URL VARCHAR (300),
+Descricao VARCHAR (300),
+Price REAL
+);
+
+insert into cardapio(
+Title, URL, Descricao, Price
+) 
+values('Pastel de Vento', 'https://pt.petitchef.com/imgupl/recipe/pastel-de-vento--md-270254p438811.jpg', 'Só vento', 5),
+        ( 'Pastel de Frango', 'https://d21wiczbqxib04.cloudfront.net/NbvLSMvglvNnHa3C_uK_g0eO2eg=/0x600/smart/https://osuper-ecommerce-marcon.s3.sa-east-1.amazonaws.com/3bcbcb15-pasteldefrangocom.jpg',
+        'Frango pracaralho', 12),
+        ('Pastel de Carne', 'https://www.receitas-sem-fronteiras.com/media/pastel-maria_crop.jpg/rh/pastel-de-carne.jpg',
+        'É carne viu minino', 15);

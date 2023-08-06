@@ -1,0 +1,29 @@
+<%- include('headNav.ejs', { pageTitle: 'Cardápio' }) %>
+
+    <section class="container ">
+        <h2>Cardápio:</h2>
+
+        <% rows.forEach( (item) => { %>
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="<%= item.URL %>">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title"><%= item.Title %></span>
+                        <p><%= item.Descricao %></p>
+                        <h4>R$ <%= item.Price %></h4>
+                    </div>
+                    <div class="card-action">
+                        <a class="" href="/delete/<%= item.Title %>">Deletar</a>
+                        <a class="" href="/editar/<%= item.Title %>">Editar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Os dois codigos acima foram tirados do site materialize-->
+    <title>Editar</title>
+</head>
+
+<body class="yellow lighten-4">
+    <nav class="deep-orange darken-4">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">Beiçola's Pastelary</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/cardapio">Cardápio</a></li>
+                <li><a href="/criar">Criar</a></li>
+                <li><a href="*"></a>Pedidos</li>
+            </ul>
+        </div>
+    </nav>
+    <section class="container">
+        <h2>Editar cardapio</h2>
+
+        <form action="/editar/<%= row.Title %>" method="POST">
+            <label for="Title">Nome do prato:</label>
+            <input type="text" name="Title" value="<%= row.Title %>">
+
+            <label for="Des">Descrição:</label>
+            <input type="text" name="Des" value="<%= row.Descricao %>">
+
+            <label for="Price">Preço:</label>
+            <input type="text" name="Price"  value="<%= row.Price %>">
+
+            <label for="URL">Imagem:</label>
+            <input type="text" name="URL"  value="<%= row.URL %>">
+
+            <button type="submit" class="waves-effect waves-light btn-large deep-orange darken-4">Adicionar</button>
+        </form>
+
+    </section>
+</body>
+
+</html>

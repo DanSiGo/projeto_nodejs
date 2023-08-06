@@ -1,0 +1,455 @@
+-------- aula 0 -------- 
+
+fazer revisão de javascript
+noções gerais sobre node
+
+
+-------------------------- 
+--------- aula 1 --------- 
+-------------------------- 
+
+
+nodejs é um ambiente/plataforma de tempo de execução cross-platform para execução de código em javascript, isso quer dizer que com ele é possível utilizar o javascript sem necessitar de uma pagina html
+
+node é um ambiente e uma biblioteca
+
+o javascript é conhecido por sua utilização para criação de funcionalidades para interatividade em paginas web
+
+a base do funcionamento do nodejs é o motor javascript v8, que é desenvolvido pela google e está presente no chrome
+
+o node permite a utilização do js no lado do servidor, o que permite ao desenvolvedor criar e reutilizar código em ambos os lados com apenas uma linguagem, sem necessidade de utilizar outra linguagem para o lado do servidor
+
+o node tem operação assincrona, o que garante agilidade por não bloquear o funcionamento do programa enquanto uma operação está em execução
+
+a assincronicidade do nodejs se deve ao seu modelo de i/o não bloqueante e orientado a eventos
+
+isso é importante para que o programa possa realizar várias operações ao mesmo tempo, sem precisar uma encerrar para iniciar outra, o que é bom em caso de operações que podem demorar
+
+ele possui o npm (node package manage) que fornece pacotes e módulos, para aplicações robustas
+
+o nodejs garante a escalabilidade de servidores web
+
+- baixar o node
+
+1. Abra o navegador e vá para o site oficial do Node.js em https://nodejs.org/
+2. Clique no botão "Download" na página inicial. Isso abrirá a página de download, onde você pode
+escolher a versão desejada do Node.js para baixar.
+3. Selecione a versão LTS (Long Term Support - Suporte de longo prazo) recomendada para uso em
+produção.
+4. Clique no botão "Windows Installer" para baixar o instalador do Node.js para o seu sistema
+operacional Windows.
+5. Aguarde até que o download seja concluído e, em seguida, execute o arquivo baixado para iniciar o
+assistente de instalação.
+6. Siga as instruções na tela para instalar o Node.js em seu computador. Isso incluirá a seleção de
+uma pasta de destino para a instalação e a configuração
+de variáveis de ambiente.
+1. Uma vez concluída a instalação, você pode verificar se a instalação foi bem-sucedida abrindo o seu
+prompt de comando e digitando "node -v" e "npm -v" para verificar as versões instaladas do Node.js
+e do gerenciador de pacotes NPM respectivamente.
+
+
+- nvm
+
+node version manager é importante para utilizar o node em uma versão específica
+
+as vezes é necessário usar uam versão para algum tipo de projeto específico
+
+- node x javascript
+
+node é um ambiente que executa código javascript no lado do servidor
+
+o javascript é apenas uma linguagem que é utilizada para criação de scripts para execuçaõ no navegador
+
+o node dá acesso a recursos do sistema operacional, arquivos, banco de dados e redes, o javascript só a recursos limitados ao navegador
+
+node é utilizado para muitas coisas:
+	api
+	aplicações tempo real, jogos
+	automatização de banco de dados
+	internet das coisas
+	ciencia d edados
+	scipts de linha de ocmando
+
+-------------------------- 
+--------- aula 2 --------- 
+-------------------------- 
+
+- novo projeto
+
+para iniciar um novo projeto:
+
+> npm init -y
+
+vai gerar um arquivo package.json com os dados do projeto (nome, versão, descrição, dependencias e scripts)
+
+o comando npm init é para iniciar o projeto, e a opção -y (yes) é para utilizar as configurações padrão
+
+com -y a criação do projeto é rapida, posteriormente é possível modificar as configurações
+
+--- configurações conforme pagina do node
+
+no index.js: 
+
+const http = require('http');
+
+const hostname = '127.0.0.1';
+const port = 3000;
+
+const server = http.createServer( (req, res) => {
+    res.end('Hello World!')
+})
+
+server.listen(port, hostname, () => {
+    console.log('Server ON')
+})
+
+apos esse código, para iniciar o servidor:
+
+> node index.js
+
+digitar o ip local com a porta no navegador
+
+
+--- ambiente de produção e desenvolvimento
+
+produção: ambiente final, utilizado pelo usuário, é estável, seguro, escalável e com recursos limitados
+
+desenvolvimento: usado pelos desenvolvedores para testar e desenvolver o software. flexivel, facil de usar, recursos amplos
+
+os ambientes são separados, para que um não interfira no outro
+
+--- npm install
+
+node package manager
+
+ele lê as dependências do arquivo package.json e instala os pacotes
+
+para instalar o pacote express:
+
+> npm install express
+
+se digitar apenas npm install, ele vai instalar os pacotes listados na pagina package.json
+
+npm i é a abreviação
+
+dá pra instalar varios de uma so vez separando por espaço os nomes dos pacotes
+
+existem opções adicionais como --save ou --save-dev
+
+npm i pode ser executado na pasta raiz do projeto onde está o package.json
+
+--- node modules 
+
+é uma pasta criada quando o npm instala qualquer pacote
+
+dentro dessa paste contem todos os pacotes instalados
+
+criado na raiz do projeto
+
+nao da pra fazer usando o google drive
+
+- explicando as linhas 
+
+    const http = require('http');
+
+    const hostname = '127.0.0.1';
+    const port = 3000;
+
+    const server = http.createServer( (req, res) => {
+        res.end('Hello World!')
+    })
+
+    server.listen(port, hostname, () => {
+        console.log('Server ON')
+    })
+
+. const http = require('http') 
+
+isso é a importação do módulo http do nodejs, que fornece funcionalidades necessarias prara criar um servidor http
+
+. const server = http.createServer(req, res) => {}
+
+criação de um novo servidor http usando o método createServer do modulo http. 
+
+esse modulo recebe uma função de callback (que é a arrowfunction) que é chamada sempre que uma nova solicitação é recebida pelo servidor.
+
+a função callback tem dois parametros: req é a solicitação e res é a resposta
+
+. res.end('Hello World!')
+utiliza o metodo end do objeto res, o método end envia a resposta 'hello world' e encerra a resposta
+
+. server.listen(port, hostname, () => {
+o metodo listen inicia o servidor e passa o parametro da porta e do endereço
+
+alem disso ta sendo criado uma função callback que retornara uma mensagem via console 'server on'
+
+- melhorando o ambiente node
+
+(no slide fala de ESLint)
+
+
+-------------------------- 
+--------- aula 3 --------- 
+-------------------------- 
+
+
+--------------- startando um projeto ---------------
+
+. cria a pasta, cria o arquivo js
+
+. npm init -y (inicia o projeto, cria o package.json)
+
+. npm i express (instala o express, cria o package-lock.json)
+
+. npm i ejs (instala o ejs, para utilizar js no codigo html, facilita o uso de templates)
+
+. npm i mysql
+
+. no .js tem que chamar o express
+const express = require('express') // chamada do pacote express
+
+. chamar o ejs
+const ejs = require('ejs') 
+
+. instanciar o express:
+const app = express()
+
+. definindo o ejs como mecanismo de visualização:
+app.set('view engine', 'ejs')
+
+. definir uma pasta para arquivos estáticos:
+app.use(express.static('public'))
+
+--- criando rota
+
+. definindo a rota inicial:
+
+// '/' -> rota inicial
+// Rota: Home
+
+app.get('/', (req, res) => {
+    res.sendFile(__dirname + '/views/index.html') 
+
+// __dirname --> faz a rota automatica até chegar na pasta do arquivo. Essa função faz parte do pacote express
+
+a função get está definindo o que será mostrado quando for feito uma solicitação GET: vai enviar o arquivo index.html que está na pasta views
+
+o dirname indica o início da rota, pra não precisar modificar caso haja alteração no início
+
+
+--- utilizando o EJS 
+
+. outra rota:
+
+app.get('/cardapio', (req, res) => {
+	const comida = [{}]
+	res.render('cardapio', {pratos: comida}) 
+// precisa das chaves (sintaxe)}
+
+criando a rota /cardapio quando receber uma solicitação get
+
+a função callback se encerra utilizando a função res.render() 
+
+a função res.render é do Express e serve para para renderizar o template 'cardapio' e passar o objeto {pratos:comida} para o template EJS
+
+lembrando que 'comida' é um array de objetos
+
+. no template cardapio.ejs
+
+        <% pratos.forEach( (item) => { %>
+        <div class="row">
+            <div class="col s12 m7">
+                <div class="card">
+                    <div class="card-image">
+                        <img src="<%= item.img %>">
+                    </div>
+                    <div class="card-content">
+                        <span class="card-title"><%= item.prato %></span>
+                        <p><%= item.desc %></p>
+                        <h4>R$ <%= item.price %></h4>
+                    </div>
+                    <div class="card-action">
+                        <a href="#">Notificar o garçom</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% }) %>
+
+os parametros para interação com o objeto são passados entre % %
+
+economiza codigo html
+
+alterações podem ser feitas no .js
+
+. inicializando o servidor
+
+app.listen(3000, () => {
+    console.log('Server ON')
+})
+
+. node index.js
+
+
+
+--- lembrar de fazer o banco de dados
+
+
+-------------------------- 
+--------- aula 4 --------- 
+-------------------------- 
+
+criar nova pagina: /CRIAR
+
+vai ser a pagina para adicionar itens ao cardápio
+
+index.js
+
+parte de componentes
+
+
+// rota: criar
+app.get('/criar', (req, res) => {
+    res.render('criar')
+})
+
+aqui utiliza o metodo GET para renderizar a pagina, mostrar o html (no caso, ejs)
+
+
+// na mesma rota 'criar', incluir metodo POST
+app.post('/criar', (req, res) => {
+    const {Title, Des, Price, URL} = req.body
+    const query = 'INSERT INTO cardapio (Title, URL, Descricao, Price) VALUES (?,?,?,?)'
+    connection.query(query, [Title, URL, Des, Price], (err) => { 
+        if (err) throw err 
+        res.redirect('/cardapio')  
+    })
+
+})
+
+essa parte é a que vai utilizar o metodo POST (app.post) para coletar dados inseridos no html
+
+dentro do objeto const, serão passados os nomes das chaves, que devem ter os nomes iguais aos name= do html
+
+a função callback nao é necessário, mas é bom para ver se der erro
+
+se tudo der certo, vai cadastrar e redirecionar para a pagina cardapio
+
+
+--- rota pra apagar
+
+
+app.get('/delete/:Title', (req, res) => {
+    const { Title } = req.params
+    const query = 'DELETE FROM cardapio WHERE Title = ? limit 1'
+    connection.query(query, [Title], (err) => {
+        if (err) throw err
+        res.redirect('/')
+    })
+})
+
+tambem e possivel 
+const query = `DELETE FROM cardapio WHERE Title = ${Title} limit 1`
+connection.query(query, (err) => {
+
+
+no html do cardpaio 
+<a class="" href="/delete/<%= item.Title %>">Deletar</a>
+
+-------------------------- 
+--------- aula 5 --------- 
+-------------------------- 
+
+
+// rota para coleta EDIT
+app.get('/editar/:Title', (req, res) => {  // utiliando metodo get para ler a pagina
+    const { Title } = req.params
+    const query = 'SELECT * FROM cardapio WHERE Title = ? limit 1'
+    connection.query(query, [Title], (err, rows) =>{
+        if (err) throw err
+        res.render('editar', { row: rows[0]})
+    })
+})
+
+// rota para editar (update)
+app.post('/editar/:Tit', (req, res) => {  // metodo post para enviar os dados alterados
+    const { Tit } = req.params
+    const { Title, Des, URL, Price } = req.body
+    const query = 'UPDATE cardapio SET Title = ?, URL = ?, Descricao = ?, Price = ? WHERE Title = ?'
+    connection.query(query, [Title, URL, Des, Price, Tit], (err, result) => {
+        if (err) throw err
+        res.redirect('/cardapio')
+    })
+})
+
+
+precisa fazer duas rotas, uma para mostrar a pagina e outra para realizar a atualização
+
+na rota para mostrar a pagina, deve ser configurado o método para mostrar o item selecionado
+
+para mostrar a pagina conforme o item selecionado para edição, tem que adicionar no html:
+
+no cardapio.ejs incluir o link para a pagina de editar
+<a class="" href="/editar/<%= item.Title %>">Editar</a>
+
+dessa forma, vai ser informado para a pagina de editar o nome do item a ser editado
+
+mas no html editar.ejs deve adicionar:
+
+<form action="/editar/<%= row.Title %>" method="POST">
+
+com isso, vai ser enviado pelo nome da pagina o 'titulo' do item a ser editado, por isso no método da rota deve ser captado esse titulo
+
+a captação do nome do item é pelo nome da rota com nome Tit e a const Tit = req.params
+
+com o dado do nome do item, a string de modificação do sql deve oconter o nome dpa pagina como filtro, ou seja, a const Tit (que vem entre {}, devido o express) que recebe o nome da pagina Tit
+
+
+-------------------------- 
+--------- aula 6 --------- 
+-------------------------- 
+
+vamos consumir uma api
+
+criar nova pasta para novo projeto
+
+starta novo projeto (npm init -y, npm i express, ejs)
+
+fakestoreapi.com
+
+ela fornece json, para ler no browser é importante instalar uma extensao (json viewer)
+
+. criando o .js
+
+criamos app.js
+tem que ir no arquivo package.js e alterar o nome do main para app.js
+
+. configurando o .js
+
+const express = require('express')
+const axios = require('axios')
+
+const app = express()
+
+app.set('view engine', 'ejs') 
+
+
+app.get('/', async (req, res) => {  // criando uma função assíncrona para consumir uma api
+    try{
+        // utilizando o axios com metodo get para obter dados da api
+        // salvando em uma variavel chamada response (nome comumente utilizado)
+        // por ser assincrono precisa do método await
+        const response = await axios.get('https://fakestoreapi.com/products') 
+        // isso retorna uma promise, precisa ser captado os dados
+        // para captar os dados da promise, buscamos o atributo .data do objeto response
+        const products = response.data
+        // renderizar o resultado na pagina
+        res.render('products', { products })
+
+    }
+    // try e catch são usados para tentar alcançar um objetivo ou captar o erro
+    catch (error) {
+        console.log(error)
+    }
+
+})
